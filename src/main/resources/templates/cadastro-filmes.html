@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+    </head>
+    <body>
+        <h1>TODO write content</h1>
+           <form>
+            <div class="mb-3">
+                <label class="form-label">titulo</label>
+                <input type="text" class="form-control" placeholder="título" >
+            </div>
+            <div class="mb-3">
+                <label class="form-label">sinopse</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label>Gênero</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Selecione uma opção</option>
+                    <option value="1">ação</option>
+                    <option value="2">comédia</option>
+                    <option value="3">aventura</option>
+                    <option value="4">terror</option>
+                    <option value="5">suspense</option>
+                </select>
+            </div>
+               <div class="mb-3" >
+                   <input type="text"  class="form-control" placeholder="ano lançamento" >
+               </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+          </form>
+          <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    </body>
+</html>
