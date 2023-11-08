@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-            <form th:action="@{/registro}" th:object="${filme}" class="border col-5 d-flex flex-column justify-content-center align-content-center p-5 max-auto">
+            <form th:action="@{/cadastro-filmes}" th:object="${filme}" class="border col-5 d-flex flex-column justify-content-center align-content-center p-5 mx-auto" method="POST">
             <div class="mb-3">
                 <label class="form-label">titulo</label>
                 <input type="text" th:field="${filme.titulo}" class="form-control" placeholder="título" required="" >
@@ -20,7 +20,7 @@
             </div>
             <div class="mb-3">
                 <label>Gênero</label>
-                <select class="form-select"  aria-label="Default select example" required>
+                <select class="form-select" th:fiel="${filme.genero}"  aria-label="Default select example" required>
                     <option selected value="">Selecione uma opção</option>
                     <option value="1" th:selected="${filme.genero == 1 }" >ação</option>
                     <option value="2" th:selected="${filme.genero == 2 }" >comédia</option>

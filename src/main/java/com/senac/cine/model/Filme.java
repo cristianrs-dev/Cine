@@ -9,17 +9,17 @@ public class Filme {
     private int id;
     private String titulo;
     private String sinopse;
-    private String genereo;
+    private String genero;
     private int anoLancamento;
 
     public Filme() {
     }
 
-    public Filme(int id, String titulo, String sinopse, String genereo, int anoLancamento) {
+    public Filme(int id, String titulo, String sinopse, String genero, int anoLancamento) {
         this.id = id;
         this.titulo = titulo;
         this.sinopse = sinopse;
-        this.genereo = genereo;
+        this.genero = genero;
         this.anoLancamento = anoLancamento;
     }
 
@@ -47,12 +47,12 @@ public class Filme {
         this.sinopse = sinopse;
     }
 
-    public String getGenereo() {
-        return genereo;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setGenereo(String genereo) {
-        this.genereo = genereo;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public int getAnoLancamento() {
