@@ -8,32 +8,34 @@
                 <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
     </head>
     <body>
-        <h1>TODO write content</h1>
-           <form>
+        <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+            <form th:action="@{/registro}" th:object="@{filme}" class="border col-5 d-flex flex-column justify-content-center align-content-center p-5 max-auto">
             <div class="mb-3">
                 <label class="form-label">titulo</label>
-                <input type="text" class="form-control" placeholder="título" >
+                <input type="text" th:field="${filme.titulo}" class="form-control" placeholder="título" required="" >
             </div>
             <div class="mb-3">
                 <label class="form-label">sinopse</label>
-                <textarea class="form-control" rows="3"></textarea>
+                <textarea th:field="${tarefa.sinopse}" class="form-control" rows="3" required></textarea>
             </div>
             <div class="mb-3">
                 <label>Gênero</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Selecione uma opção</option>
-                    <option value="1">ação</option>
-                    <option value="2">comédia</option>
-                    <option value="3">aventura</option>
-                    <option value="4">terror</option>
-                    <option value="5">suspense</option>
+                <select class="form-select"  aria-label="Default select example" required>
+                    <option selected value="">Selecione uma opção</option>
+                    <option value="1" th:selected="${filme.genero == 1 }" >ação</option>
+                    <option value="2" th:selected="${filme.genero == 2 }" >comédia</option>
+                    <option value="3" th:selected="${filme.genero == 3 }" >aventura</option>
+                    <option value="4" th:selected="${filme.genero == 4 }" >terror</option>
+                    <option value="5" th:selected="${filme.genero == 5 }" >suspense</option>
                 </select>
             </div>
                <div class="mb-3" >
-                   <input type="text"  class="form-control" placeholder="ano lançamento" >
+                   <input type="text" th:field="${filme.anoLancamento}" class="form-control" placeholder="ano lançamento" required >
                </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-primary col-3 align-content-center">Cadastrar</button>
           </form>
+        </div>
+        
           <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
     </body>
 </html>
