@@ -9,7 +9,11 @@
     </head>
     <body>
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-            <form th:action="@{/cadastro-filmes}" th:object="${filme}" class="border col-5 d-flex flex-column justify-content-center align-content-center p-5 mx-auto" method="POST">
+            <form th:action="@{/registro}" th:object="${filme}" class="border col-5 d-flex flex-column justify-content-center align-content-center p-5 mx-auto" method="POST">
+            <div class="mb-3">
+                <label class="form-label">Código</label>
+                <input type="text" th:field="${filme.id}" class="form-control" placeholder="título" required="" >
+            </div>
             <div class="mb-3">
                 <label class="form-label">titulo</label>
                 <input type="text" th:field="${filme.titulo}" class="form-control" placeholder="título" required="" >
@@ -20,13 +24,13 @@
             </div>
             <div class="mb-3">
                 <label>Gênero</label>
-                <select class="form-select" th:fiel="${filme.genero}"  aria-label="Default select example" required>
+                <select class="form-select" th:field="${filme.genero}"  aria-label="Default select example" required>
                     <option selected value="">Selecione uma opção</option>
-                    <option value="1" th:selected="${filme.genero == 1 }" >ação</option>
-                    <option value="2" th:selected="${filme.genero == 2 }" >comédia</option>
-                    <option value="3" th:selected="${filme.genero == 3 }" >aventura</option>
-                    <option value="4" th:selected="${filme.genero == 4 }" >terror</option>
-                    <option value="5" th:selected="${filme.genero == 5 }" >suspense</option>
+                    <option value="Acao" th:selected="${filme.genero == 1 }" >ação</option>
+                    <option value="Comedia" th:selected="${filme.genero == 2 }" >comédia</option>
+                    <option value="Aventura" th:selected="${filme.genero == 3 }" >aventura</option>
+                    <option value="Terror" th:selected="${filme.genero == 4 }" >terror</option>
+                    <option value="Suspense" th:selected="${filme.genero == 5 }" >suspense</option>
                 </select>
             </div>
                <div class="mb-3" >

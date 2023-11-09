@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
     </head>
     <body>
-        <div>TODO write content</div>
+         <div class="d-flex justify-content-center text-center col-5" style="height: 100vh;">
+            <table class="table table-bordered">
+                 <thead>
+                    <tr>
+                        <th>COD.</th>
+                        <th>TÍTULO</th>
+                        <th>SINOPSE</th>
+                        <th>GÊNERO</th>
+                        <th>ANO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="filme : ${filmes}">
+                        <td th:text="${filme.id}"></td>
+                        <td th:text="${filme.titulo}"></td>
+                        <td th:text="${filme.sinopse}"></td>
+                        <td th:text="${filme.genero}"></td>
+                        <td th:text="${filme.anoLancamento}"></td>
+                    </tr>
+                </tbody>
+            </table>
+         </div>
+        <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
     </body>
 </html>
