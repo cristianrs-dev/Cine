@@ -33,12 +33,12 @@ public class FilmeController {
     @PostMapping("/cadastro-filme")
     public String setFilme(Model model,@RequestParam int id,@RequestParam String titulo,@RequestParam String sinopse,@RequestParam String genero, @RequestParam int anoLancamento){
         Filme filme = new Filme();
+        
         filme.setId(id);
         filme.setTitulo(titulo);
-
-            filme.setGenero(genero);
-
+        filme.setGenero(genero);
         filme.setAnoLancamento(anoLancamento);
+        
         filmes.add(filme);
         model.addAttribute("filme",filme);
         return "registro";
@@ -46,6 +46,7 @@ public class FilmeController {
         @PostMapping("/registro")
         public String exibeCadastro(@ModelAttribute Filme filme, Model model){
            filmes.add(filme);
+     
             model.addAttribute("filmes", filmes);
             return "registro";
         }
