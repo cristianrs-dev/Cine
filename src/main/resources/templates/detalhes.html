@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+    <head>
+        <title>classificação</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Detalhes do Filme</h2>
+
+    <h3 th:text="${filme.titulo}"></h3>
+    <p th:text="${filme.descricao}"></p>
+    <p th:text="${filme.diretor}"></p>
+
+    <h3>Adicionar Análise</h3>
+    <form action="#" th:action="@{/adicionarAnalise}" th:object="${analise}" method="post">
+        <label for="analiseTexto">Análise:</label>
+        <textarea id="analiseTexto" th:field="*{analise}" rows="4" cols="50"></textarea>
+        <br>
+        <label for="nota">Nota:</label>
+        <input type="number" id="nota" th:field="*{nota}" min="0" max="10"/>
+        <br>
+        <button type="submit">Adicionar Análise</button>
+    </form>
+
+    <!-- Exibir análises existentes -->
+    <h3>Análises</h3>
+    <ul>
+        <li th:each="analise : ${analises}">
+            <p th:text="${analise.analise}"></p>
+            <p th:text="${analise.nota}"></p>
+        </li>
+    </ul>
+    </body>
+</html>

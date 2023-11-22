@@ -1,4 +1,4 @@
-
+//
 package com.senac.cine.controller;
 import com.senac.cine.model.Filme;
 import java.util.ArrayList;
@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/**
- *
- * @author Rosilane
- */
+
 
 @Controller
 public class FilmeController {
@@ -23,13 +20,13 @@ public class FilmeController {
         model.addAttribute("filme", new Filme());
         return "cadastro-filmes";
     }
-    /*
-    @GetMapping("/lista-filmes")
-    public String getListaFilmes(Model model){
+    
+    @GetMapping("/filmes")
+        public String exibeCadastro(Model model){
             model.addAttribute("filmes", filmes);
             return "registro";
         }
-    */
+    
     @PostMapping("/cadastro-filme")
     public String setFilme(Model model,@RequestParam int id,@RequestParam String titulo,@RequestParam String sinopse,@RequestParam String genero, @RequestParam int anoLancamento){
         Filme filme = new Filme();
@@ -43,6 +40,8 @@ public class FilmeController {
         model.addAttribute("filme",filme);
         return "registro";
     }
+    
+    
         @PostMapping("/registro")
         public String exibeCadastro(@ModelAttribute Filme filme, Model model){
            filmes.add(filme);

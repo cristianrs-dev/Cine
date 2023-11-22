@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
     <head>
-        <title>TODO supply a title</title>
+        <title>analise</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
@@ -19,15 +18,20 @@
                         <th>SINOPSE</th>
                         <th>GÊNERO</th>
                         <th>ANO</th>
+                        <th>AVALIAR</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="filme : ${filmes}">
                         <td th:text="${filme.id}"></td>
-                        <td th:text="${filme.titulo}"></td>
+                        <td>
+                            <a th:href="@{/detalhes/${filme.id}}" th:text="${filme.titulo}"></a>
+                        </td>
+                        <!-- <td th:text="${filme.titulo}"></td> -->
                         <td th:text="${filme.sinopse}"></td>
                         <td th:text="${filme.genero}"></td>
                         <td th:text="${filme.anoLancamento}"></td>
+                        <td th:href="@{/detalhes}" th:text="Avaliar" >avaliar</td>
                     </tr>
                 </tbody>
             </table>

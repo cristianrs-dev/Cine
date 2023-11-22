@@ -9,7 +9,9 @@
                 <link rel="stylesheet" th:href="@{/css/style.css}"/>   
     </head>
     <body>
-        <header th:insert="nav.html :: nav" ></header>
+        <header th:insert="nav.html :: nav" >
+          
+        </header>
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
             <form th:action="@{/registro}" th:object="${filme}" class="border col-5 d-flex flex-column justify-content-center align-content-center p-5 mx-auto" method="POST">
          
