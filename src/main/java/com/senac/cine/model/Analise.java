@@ -9,12 +9,12 @@ public class Analise {
     private int id;
     private Filme filme;
     private String analise;
-    private float nota;
+    private int nota;
 
     public Analise() {
     }
 
-    public Analise(int id, Filme filme, String analise, float nota) {
+    public Analise(int id, Filme filme, String analise, int nota) {
         this.id = id;
         this.filme = filme;
         this.analise = analise;
@@ -45,11 +45,11 @@ public class Analise {
         this.analise = analise;
     }
 
-    public float getNota() {
+    public int getNota() {
         return nota;
     }
 
-    public void setNota(float nota) {
+    public void setNota(int nota) {
         this.nota = nota;
     }
     

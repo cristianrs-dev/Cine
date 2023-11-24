@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class FilmeController {
-    ArrayList<Filme> filmes = new ArrayList<>();
+   public static ArrayList<Filme> filmes = new ArrayList<>();
     
     @GetMapping("/cadastro-filmes")
     public String exibeFormulario(Model model){
@@ -35,7 +35,7 @@ public class FilmeController {
         filme.setTitulo(titulo);
         filme.setGenero(genero);
         filme.setAnoLancamento(anoLancamento);
-        
+       
         filmes.add(filme);
         model.addAttribute("filme",filme);
         return "registro";
