@@ -8,16 +8,16 @@ package com.senac.cine.model;
 public class Analise {
     private int id;
     private Filme filme;
-    private String analise;
+    private String comentario;
     private int nota;
 
     public Analise() {
     }
 
-    public Analise(int id, Filme filme, String analise, int nota) {
+    public Analise(int id, Filme filme, String comentario, int nota) {
         this.id = id;
         this.filme = filme;
-        this.analise = analise;
+        this.comentario = comentario;
         this.nota = nota;
     }
 
@@ -37,12 +37,12 @@ public class Analise {
         this.filme = filme;
     }
 
-    public String getAnalise() {
-        return analise;
+    public String getComentario() {
+        return comentario;
     }
 
-    public void setAnalise(String analise) {
-        this.analise = analise;
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
 
     public int getNota() {

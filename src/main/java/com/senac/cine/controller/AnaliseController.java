@@ -5,11 +5,9 @@ import com.senac.cine.model.Analise;
 import com.senac.cine.model.Filme;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,31 +18,60 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class AnaliseController {
-   
+    List<Filme> lista = FilmeController.filmes;
+    List<Analise> analises = new ArrayList<>();
+    
     @GetMapping("/detalhes/{id}")
     public String exibeDetalhesFilme(@PathVariable int id, Model model) {
-    List<Filme> lista = FilmeController.filmes;
+    
 
-        Filme filme = new Filme();
+    if (id >= 0 && id < lista.size()) {
+        Filme filme = lista.get(id);
         
-        filme=lista.get(id);
-        System.out.println("ESTE É O ID "+filme.getTitulo());
-    model.addAttribute("filme", filme);
-    
-    model.addAttribute("analise", new Analise());
-    
-    return "detalhes";
+        model.addAttribute("filme", filme);
+        model.addAttribute("analises", analises);
+        model.addAttribute("analise", new Analise());
+        return "detalhes";
+    } else {
+        // Lidar com o caso em que o id não é um índice válido na lista
+        return "erro";
+    }
 }
 
     
-    @PostMapping("/adicionarAnalise")
-    public String adicionarAnalise( Model model, @RequestParam int id,@RequestParam Filme filme, @RequestParam String comentario, @RequestParam int nota) {
-       Analise analise = new Analise(id, filme, comentario, nota);
-       model.addAttribute("analise", analise);
-
-        // Redirecionar de volta para a página de detalhes do filme
-        return "redirect:/detalhes";
-    }
+    @PostMapping("/detalhes/{id}")
+    public String adicionarAnalise(@PathVariable int id, Model model, @RequestParam String comentario, @RequestParam int nota) {
     
+
+    if (id >= 0 && id < lista.size()) {
+        Filme filme = lista.get(id);
+
+        Analise analise = new Analise();
+        analise.setComentario(comentario);
+        analise.setNota(nota);
+
+        
+        analise.setFilme(filme);
+       analises.add(analise);
+        model.addAttribute("filme", filme);
+        model.addAttribute("analise", new Analise());
+        return "redirect:/detalhes/"+id;
+    } else {
+        
+        return "erro";
+    }
+}
+    /*
+    @GetMapping("/detalhes")
+    public String mostraDetalhes(Model model,@PathVariable int id){
+        Filme filme = lista.get(id);
+        
+        model.addAttribute("filme", filme);
+        model.addAttribute("analises", analises);
+        model.addAttribute("analise", new Analise());
+        
+        return  "redirect:/detalhes";
+    }
+    */
     
 }
