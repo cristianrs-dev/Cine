@@ -12,33 +12,44 @@
         <header th:insert="nav.html :: nav" >
           
         </header>
-        <h2>Detalhes do Filme</h2>
+        <main class="m-1" >
+           <section>
+            <h3 th:text="${filme.titulo}" class="text-uppercase"></h3>
+            <div class="d-flex" >
+                <span class="m-1" th:text="${filme.genero}"></span>
+                <span class="m-1" th:text="${filme.anoLancamento}"></span>
+            </div>
+          
+        <span  >sinopse
+            <p class="border-1 text-uppercase text-justify" th:text="${filme.sinopse}"></p>
+        </span>
+        
+            
+        </section>
+    
 
-    <h3 th:text="${filme.titulo}"></h3>
-    <p th:text="${filme.sinopse}"></p>
-    <p th:text="${filme.genero}"></p>
-    <p th:text="${filme.anoLancamento}"></p>
-
-    <h3>Adicionar Análise</h3>
+        
     <form th:action="@{'/detalhes/' + ${filme.id}}" th:object="${analise}" method="post">
         <label>Análise:</label>
-        <textarea id="analiseTexto" th:field="${analise.comentario}" rows="4" cols="50"></textarea>
+        <br>
+            <textarea id="analiseTexto" placeholder="adicione um comentario" th:field="${analise.comentario}" rows="4" cols="50"></textarea>
         <br>
         <label>Nota:</label>
         <input type="number" id="nota" th:field="${analise.nota}" min="0" max="10"/>
         <br>
-        <button type="submit">Adicionar Análise</button>
+            <button type="submit" class="btn btn-secondary m-2">Adicionar Análise</button>
     </form>
 
     
     <h3>Análises</h3>
-    <ul>
-        <li th:each="analise : ${analises}">
+    <div class="border-1">
+        <span th:each="analise : ${analises}">
             <p th:text="${analise.filme.titulo}"></p>
             <p th:text="${analise.comentario}"></p>
             <p th:text="${analise.nota}"></p>
-        </li>
-    </ul>
+        </span>
+    </div>  
+        </main>
         <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
         <script th:src="@{/js/script.js}"></script>
     </body>
