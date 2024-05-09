@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class FilmeController {
    public static ArrayList<Filme> filmes = new ArrayList<>();
-    
+    //link http://localhost:8080/cadastro-filmes
     @GetMapping("/cadastro-filmes")
     public String exibeFormulario(Model model){
         model.addAttribute("filme", new Filme());

@@ -24,8 +24,8 @@ public class AnaliseController {
     @GetMapping("/detalhes/{id}")
     public String exibeDetalhesFilme(@PathVariable int id, Model model) {
     
-
-    if (id >= 0 && id < lista.size()) {
+        Filme filmeEncontrado = lista.get(id);
+    if (filmeEncontrado.getId() >= 0 && filmeEncontrado.getId() <= lista.size()) {
         Filme filme = lista.get(id);
         
         model.addAttribute("filme", filme);
